@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+    <title>Machine Learning App</title>
+</head>
+<body>
+    <h1>Machine Learning Prediction App</h1>
+
+    <form method="post" action="{{ url_for('predict') }}">
+        <label for="sex">Sex:</label>
+        <input type="text" name="sex" required>
+        
+        <label for="marriage">Marriage:</label>
+        <input type="text" name="marriage" required>
+
+        <label for="age">Age:</label>
+        <input type="text" name="age" required>
+
+        <label for="bill_amt1">Bill Amount 1:</label>
+        <input type="text" name="bill_amt1" required>
+
+        <label for="education">Education:</label>
+        <input type="text" name="education" required>
+
+        <label for="pay_1">Pay 1:</label>
+        <input type="text" name="pay_1" required>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction %}
+        <p>Prediction: {{ prediction }}</p>
+    {% endif %}
+</body>
+</html>
